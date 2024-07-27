@@ -64,6 +64,25 @@ displayedContent.innerHTML = productHTML;
 document.querySelectorAll('.add-to-cart-btn')
 .forEach((button)=>{
   button.addEventListener('click',()=>{
-    console.log('added product!')
-  })
-})
+    //console.log('added product!')
+    const productName = button.dataset.productName;
+
+    let machingItem;
+
+    cart.forEach((item)=>{
+      if(productName === item.productName){
+        machingItem = item;
+      }
+    });
+
+    if(machingItem){
+      machingItem.quantity += 1;
+    }else{
+    cart.push({
+      productName: productName,
+      quantity: 1,
+    });
+  }
+    console.log(cart)
+  });
+});
