@@ -48,14 +48,22 @@ products.map((product)=>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary add-to-cart-btn" data-product-name="${product.name}">
             Add to Cart
           </button>
         </div>
   `
   //console.log(html);
 });
-console.log(productHTML);
+//console.log(productHTML);
 
 let displayedContent = document.getElementById('js-product-container');
-displayedContent.innerHTML = productHTML
+displayedContent.innerHTML = productHTML;
+
+
+document.querySelectorAll('.add-to-cart-btn')
+.forEach((button)=>{
+  button.addEventListener('click',()=>{
+    console.log('added product!')
+  })
+})
