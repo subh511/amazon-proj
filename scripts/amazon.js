@@ -1,7 +1,6 @@
+let productHTML = "";
 
-let productHTML = '';
-
-products.map((product)=>{
+products.map((product) => {
   //accumulator pattern;
   productHTML += `
           <div class="product-container">
@@ -23,7 +22,7 @@ products.map((product)=>{
           </div>
 
           <div class="product-price">
-            $${(product.priceCents/100).toFixed(2)}
+            $${(product.priceCents / 100).toFixed(2)}
           </div>
 
           <div class="product-quantity-container">
@@ -48,41 +47,41 @@ products.map((product)=>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary add-to-cart-btn" data-product-name="${product.name}">
+          <button class="add-to-cart-button button-primary add-to-cart-btn" data-product-id="${
+            product.id
+          }">
             Add to Cart
           </button>
         </div>
-  `
+  `;
   //console.log(html);
 });
 //console.log(productHTML);
 
-let displayedContent = document.getElementById('js-product-container');
+let displayedContent = document.getElementById("js-product-container");
 displayedContent.innerHTML = productHTML;
 
-
-document.querySelectorAll('.add-to-cart-btn')
-.forEach((button)=>{
-  button.addEventListener('click',()=>{
+document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
+  button.addEventListener("click", () => {
     //console.log('added product!')
-    const productName = button.dataset.productName;
+    const productId = button.dataset.productId;
 
     let machingItem;
 
-    cart.forEach((item)=>{
-      if(productName === item.productName){
+    cart.forEach((item) => {
+      if (productId === item.productId) {
         machingItem = item;
       }
     });
 
-    if(machingItem){
+    if (machingItem) {
       machingItem.quantity += 1;
-    }else{
-    cart.push({
-      productName: productName,
-      quantity: 1,
-    });
-  }
-    console.log(cart)
+    } else {
+      cart.push({
+        productId: productId,
+        quantity: 1,
+      });
+    }
+    console.log(cart);
   });
 });
