@@ -66,7 +66,18 @@ document.querySelectorAll('.add-to-cart-btn')
 .forEach((button)=>{
   button.addEventListener('click',()=>{
     //console.log('Added!')
-    let productName = button.dataset.productName
+    //1st part;
+    let productName = button.dataset.productName;
+
+    let machingItem;
+    
+    cart.forEach((item)=>{
+      if(productName === item.productName){
+
+      }
+    })
+
+    //2nd part;
     cart.push({
       productName: productName,
       quantity:1
