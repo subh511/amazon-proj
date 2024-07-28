@@ -47,8 +47,8 @@ products.map((product) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary add-to-cart-btn" data-product-id="${
-            product.id
+          <button class="add-to-cart-button button-primary add-to-cart-btn" data-product-name="${
+            product.name
           }">
             Add to Cart
           </button>
@@ -65,7 +65,13 @@ displayedContent.innerHTML = productHTML;
 document.querySelectorAll('.add-to-cart-btn')
 .forEach((button)=>{
   button.addEventListener('click',()=>{
-    console.log('Added!')
+    //console.log('Added!')
+    let productName = button.dataset.productName
+    cart.push({
+      productName: productName,
+      quantity:1
+    });
+    console.log(cart)
   })
 })
 
