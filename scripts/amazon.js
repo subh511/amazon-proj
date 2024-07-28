@@ -80,14 +80,14 @@ document.querySelectorAll('.add-to-cart-btn')
     })
 
     if(matchingItem){
-      
-    }
-
+      matchingItem.quantity += 1;
+    }else{
     //2nd part;
     cart.push({
       productName: productName,
       quantity:1
     });
+  }
     console.log(cart)
   })
 })
