@@ -69,13 +69,19 @@ document.querySelectorAll('.add-to-cart-btn')
     //1st part;
     let productName = button.dataset.productName;
 
-    let machingItem;
-    
+    let matchingItem;
+
+    //3rdpart
+
     cart.forEach((item)=>{
       if(productName === item.productName){
-
+        matchingItem = item
       }
     })
+
+    if(matchingItem){
+      
+    }
 
     //2nd part;
     cart.push({
