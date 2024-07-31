@@ -70,9 +70,9 @@ displayedContent.innerHTML = productHTML;
 function addToCart(productId){
   let machingItem;
 
-  cart.forEach((item) => {
-    if (productId === item.productId) {
-      machingItem = item;
+  cart.forEach((cartItem) => {
+    if (productId === cartItem.productId) {
+      machingItem = cartItem;
     }
   });
 
@@ -89,8 +89,8 @@ function addToCart(productId){
 function updateCartQuantity(){
   let cartQuantity = 0;
 
-  cart.forEach((item)=>{
-    cartQuantity += item.quantity;
+  cart.forEach((cartItem)=>{
+    cartQuantity += cartItem.quantity;
   })
 
   document.getElementById('js-cart-quantity')
